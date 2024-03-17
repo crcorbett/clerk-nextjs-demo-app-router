@@ -30,9 +30,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { userId } = auth().protect();
-  const user = await currentUser();
-
   return (
     <html lang="en">
       <ClerkProvider
