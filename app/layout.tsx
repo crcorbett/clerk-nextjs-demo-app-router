@@ -13,6 +13,7 @@ import { Docs, Github, Times } from "./icons";
 import { Twitter } from "./icons";
 import { Discord } from "./icons";
 import { Metadata } from "next";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +25,18 @@ export const metadata: Metadata = {
   openGraph: { images: ["/og.png"] },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  auth().protect();
+
+  const user = await currentUser();
+
+  if (!user) {
+    return auth().redirectToSignIn();
+  }
   return (
     <html lang="en">
       <ClerkProvider
