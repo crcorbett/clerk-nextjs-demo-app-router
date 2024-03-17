@@ -1,7 +1,12 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+export default clerkMiddleware(
+  (_auth, _req) => {
+    // Clerk auth middleware checks
+  },
+  { debug: false }
+);
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)", "/chat"],
 };
