@@ -30,7 +30,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // auth().protect();
+  auth().protect();
   // const user = await currentUser();
 
   // if (!user) {
