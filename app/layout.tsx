@@ -36,6 +36,8 @@ export default async function RootLayout({
   // if (!user) {
   //   return auth().redirectToSignIn();
   // }
+  const user = await currentUser();
+  console.log(user);
   return (
     <html lang="en">
       <ClerkProvider
