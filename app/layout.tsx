@@ -31,12 +31,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   auth().protect();
+  // const user = await currentUser();
 
-  const user = await currentUser();
-
-  if (!user) {
-    return auth().redirectToSignIn();
-  }
+  // if (!user) {
+  //   return auth().redirectToSignIn();
+  // }
   return (
     <html lang="en">
       <ClerkProvider
