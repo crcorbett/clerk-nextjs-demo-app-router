@@ -30,6 +30,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  auth().protect();
   return (
     <html lang="en">
       <ClerkProvider
